@@ -1,0 +1,11 @@
+.Wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Main {
+    max-width: 828px;
+    width: 100%;
+    border: 1px solid red;
+}

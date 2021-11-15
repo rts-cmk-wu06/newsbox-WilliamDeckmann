@@ -1,0 +1,39 @@
+/* Colors: primary */
+$sage: #87BCBF !default;
+$rust: #D97D54 !default;
+$drab: #324755 !default;
+$danger: #D95454 !default;
+
+/* Colors: secondary */
+$ice: #F0F3F4 !default;
+$fossil: #C8D1D3 !default;
+$sand: #B9B0A2 !default;
+
+/* Colors: typography */
+$onyx: #1B1C20 !default;
+$slate: #6E8CA0 !default;
+$snow: #FFFFFF !default;
+
+
+
+/* Array: primary */
+$primary: (
+    "blue": $sage,
+    "orange": $rust,
+    "black": $drab,
+    "red": $danger,
+);
+
+/* Array: secondary */
+$secondary: (
+    "white": $ice,
+    "grey": $fossil,
+    "brown": $sand,
+);
+
+/* Array: typography */
+$typography: (
+    "black": $onyx,
+    "grey": $slate,
+    "white": $snow,
+);

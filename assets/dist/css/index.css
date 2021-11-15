@@ -1,0 +1,90 @@
+/* Math */
+/* @use "sass:math"; */
+/* Variables & function */
+/* Colors: primary */
+/* Colors: secondary */
+/* Colors: typography */
+/* Array: primary */
+/* Array: secondary */
+/* Array: typography */
+.Header__title, .Header__inbox, .Header__gear {
+  font-size: 4em;
+  font-weight: bolder;
+}
+
+/* Example:
+.test {
+    @extend %primary-heading;
+} */
+/* Base & layout */
+/* RESETS */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  font-family: europa, rift-soft, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+address {
+  font-style: normal;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Main {
+  max-width: 828px;
+  width: 100%;
+  border: 1px solid red;
+}
+
+/* Colors */
+/* ... */
+/* Components */
+.Header {
+  padding: 28px 25px 28px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #C8D1D3;
+}
+.Header__title, .Header__inbox, .Header__gear {
+  color: #324755;
+}
+
+/* Utilities */
+/* ... */

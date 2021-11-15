@@ -1,0 +1,43 @@
+%primary-heading {
+    font-size: 4em;
+    font-weight: bolder;
+}
+
+%secondary-heading {
+    font-size: 3.2em;
+    font-weight: bolder;
+}
+
+%section-header {
+    font-size: 2.4em;
+    font-weight: bolder;
+}
+
+%sub-title {
+    font-size: 2.4em;
+}
+
+%card-title {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+%card-copy-small {
+    font-size: 2em;
+    font-weight: lighter;
+}
+
+%card-copy-small {
+    font-size: 1.9em;
+    font-weight: lighter;
+}
+
+%message-time-stamp {
+    font-size: 1.6em;
+    font-weight: lighter;
+}
+
+/* Example:
+.test {
+    @extend %primary-heading;
+} */
