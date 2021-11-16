@@ -1,0 +1,12 @@
+.Header {
+    padding: 28px 25px 28px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $fossil;
+
+    &__title, &__inbox, &__gear {
+        @extend %primary-heading;
+        color: $drab;
+    }
+}
