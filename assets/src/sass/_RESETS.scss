@@ -22,8 +22,13 @@ address {
     font-style: normal;
 }
 
-button:hover {
-    cursor: pointer;
+button {
+    padding: 0;
+    border: none;
+    background: none;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 img, video {

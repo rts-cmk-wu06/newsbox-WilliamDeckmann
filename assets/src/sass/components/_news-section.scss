@@ -1,0 +1,40 @@
+/* News section */
+.News-section {
+
+    &__header {
+        padding: 11px 17px 11px 17px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $fossil;
+    };
+
+    &__figure {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+    };
+
+    &__icon {
+        height: 35px
+    }
+
+    &__title, &__arrow-right {
+        @extend %section-header;
+    };
+
+    &__arrow-right {
+        &_active {
+            transform: rotate(90deg);
+        };
+    };
+
+    &__list {
+        height: 0px;
+        overflow: hidden;
+        
+        &_active {
+            height: 100%;
+        };
+    };
+};

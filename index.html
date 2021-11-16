@@ -37,61 +37,48 @@
 
             <!-- Header -->
             <header class="Header">
-                <a href="./archive.html">
+                <a class="Header__link-left" href="./archive.html">
                     <i class="fas fa-inbox Header__inbox"></i>
                 </a>
                 <h1 class="Header__title">
                     Newsbox
                 </h1>
-                <a href="./settings.html">
+                <a class="Header__link-right" href="./settings.html">
                     <i class="fas fa-cog Header__gear"></i>
                 </a>
             </header>
 
+
+
             <section class="News-section">
                 <header class="News-section__header">
-                    ...
-                    <h1 class="News-section__title uppercase">
-                        Sports
-                    </h1>
+                    <figure class="News-section__figure">
+                        <div class="News-section__icon">
+                            ...
+                        </div>
+                        <h1 class="News-section__title uppercase">
+                            Sports
+                        </h1>
+                    </figure>
                     <button class="News-section__button">
-                        <i class="fas fa-chevron-right Arrow-right"></i>
+                        <i class="fas fa-chevron-right News-section__arrow-right News-section__arrow-right_active"></i>
                     </button>
                 </header>
 
-                <ul class="News-section__list">
+                <ul class="News-section__list News-section__list_active">
 
                     <!-- this is where the news cards will go -->
 
                 </ul>
             </section>
-
-            <!-- Footer -->
-            <footer class="Footer">
-
-                <!-- Dark mode toggle -->
-                <button class="Dark-mode-toggle uppercase">
-                    Toggle dark mode
-                </button>
-
-                <!-- Version info -->
-                <p class="Version-info">
-                    Version 4.8.15.16.23.42
-                </p>
-            </footer>
-
-            
-
-            
-
-            <h1 class="test">
-                this is a test
-            </h1>
-            <i class="fas fa-chevron-left Arrow-left"></i>
         </main>
     </div>
     
+
+
     <!-- JavaScript -->
     <script src="./assets/dist/js/card-list.js"></script>
+    <script src="./assets/dist/js/card-swipe.js"></script>
+    <script src="./assets/dist/js/card-archive.js"></script>
 </body>
 </html>

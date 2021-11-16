@@ -1,12 +1,26 @@
+/* Header */
 .Header {
+    width: 100%;
     padding: 28px 25px 28px 25px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
     align-items: center;
     border-bottom: 1px solid $fossil;
 
-    &__title, &__inbox, &__gear {
+    &__link-left {
+        text-align: left;
+    };
+
+    &__link-right {
+        text-align: right;
+    };
+
+    &__title, &__inbox, &__gear, &__arrow-left {
         @extend %primary-heading;
         color: $drab;
-    }
+    };
+
+    &__title {
+        justify-self: center;
+    };
 }
