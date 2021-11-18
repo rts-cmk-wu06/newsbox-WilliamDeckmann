@@ -16,7 +16,7 @@
     };
 
     &__title, &__inbox, &__gear, &__arrow-left {
-        @extend %primary-heading;
+        @extend %section-header;
         color: $drab;
     };
 

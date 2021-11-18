@@ -8,12 +8,12 @@
 /* Array: secondary */
 /* Array: typography */
 /* Font size */
-.Header__title, .Header__inbox, .Header__gear, .Header__arrow-left {
+.Settings-section__title {
   font-size: 4em;
   font-weight: bolder;
 }
 
-.News-section__title, .News-section__arrow-right {
+.Settings-panel__title, .Settings-section__sub-title, .News-section__title, .News-section__arrow-right, .Header__title, .Header__inbox, .Header__gear, .Header__arrow-left {
   font-size: 2.4em;
   font-weight: bolder;
 }
@@ -23,13 +23,18 @@
   font-weight: bolder;
 }
 
-.News-card__text {
+.Settings-section .Dark-mode-toggle, .News-card__text {
   font-size: 2em;
   font-weight: lighter;
 }
 
-.News-card__text {
+.Settings-section .Dark-mode-toggle, .News-card__text {
   font-size: 1.9em;
+  font-weight: lighter;
+}
+
+.Settings-section .Version-info {
+  font-size: 1.6em;
   font-weight: lighter;
 }
 
@@ -76,7 +81,7 @@ img, video {
   display: block;
 }
 
-figure {
+figure, input {
   margin: 0;
 }
 
@@ -205,6 +210,81 @@ ul {
 .News-card__text {
   color: #6E8CA0;
   padding: 1px;
+}
+
+/* Settings section */
+.Settings-section {
+  width: 100%;
+  height: 100%;
+  padding: 31px 18px 30px 18px;
+  background-color: #ECEFF0;
+}
+.Settings-section__header {
+  margin-bottom: 63px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Settings-section__title {
+  color: #87BCBF;
+}
+.Settings-section__sub-title {
+  color: #707070;
+}
+.Settings-section__footer {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.Settings-section .Dark-mode-toggle {
+  padding: 17px 34px 17px 34px;
+  border: 1px solid #C8D1D3;
+  border-radius: 29px;
+  color: #324755;
+}
+.Settings-section .Version-info {
+  color: #6E8CA0;
+}
+
+/* Settings panel */
+.Settings-panel {
+  border-radius: 16px;
+  overflow: hidden;
+}
+.Settings-panel__category {
+  padding: 22px 21px 22px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  border-bottom: 1px solid #F0F3F4;
+  background-color: white;
+}
+.Settings-panel__category:last-child {
+  border: none;
+}
+.Settings-panel__title {
+  color: #324755;
+}
+.Settings-panel__button {
+  width: 55px;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 15px;
+  background-color: #ECEFF0;
+  transition: background-color 0.2s;
+}
+.Settings-panel__button_active {
+  background-color: #87BCBF;
+  justify-content: flex-end;
+}
+.Settings-panel__icon {
+  margin: 2px;
+  font-size: 26px;
+  color: white;
 }
 
 /* Utilities */
