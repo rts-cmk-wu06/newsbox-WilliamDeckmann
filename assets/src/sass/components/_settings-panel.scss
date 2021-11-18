@@ -1,0 +1,44 @@
+/* Settings panel */
+.Settings-panel {
+    border-radius: 16px;
+    overflow: hidden;
+
+    &__category {
+        padding: 22px 21px 22px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 22px;
+        border-bottom: 1px solid $ice;
+        background-color: white;
+        &:last-child {
+            border: none;
+        }
+    };
+
+    &__title {
+        @extend %section-header;
+        color: $drab;
+    };
+
+    &__button {
+        width: 55px;
+        height: 30px;
+        display: flex;
+        justify-content: flex-start;
+        border-radius: 15px;
+        background-color: $alice-blue;
+        transition: background-color .2s;
+
+        &_active {
+            background-color: $sage;
+            justify-content: flex-end;
+        };
+    };
+
+    &__icon {
+        margin: 2px;
+        font-size: 26px;
+        color: white;
+    };
+};

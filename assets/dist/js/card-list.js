@@ -1,7 +1,26 @@
 "use strict";
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 document.addEventListener("DOMContentLoaded", function () {
   // API variables
+  var urlObject = {
+    "World": "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
+    "Health": "https://api.nytimes.com/svc/topstories/v2//health.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
+    "Sports": "https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
+    "Business": "https://api.nytimes.com/svc/topstories/v2/business.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
+    "Travel": "https://api.nytimes.com/svc/topstories/v2/travel.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5"
+  };
   var world = "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5";
   var health = "https://api.nytimes.com/svc/topstories/v2//health.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5";
   var sports = "https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5";
@@ -10,27 +29,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var url = world; // Element variable
 
-  var list = document.querySelector(".News-section__list");
-  var button = document.querySelector(".News-section__button");
-  var arrow = document.querySelector(".News-section__arrow-right"); // Fetch API data
+  var container = document.querySelector(".News-container"); // List length variable
+
+  var listLength = 5;
+  Object.entries(urlObject).forEach(function (element) {
+    var _element = _slicedToArray(element, 2),
+        key = _element[0],
+        value = _element[1];
+
+    console.log(key);
+    console.log(value);
+  }); // Fetch API data
 
   axios.get(url).then(function (response) {
     // Path variable
-    var path = response.data.results; // For each item in the path
+    var path = response.data.results; // Create section
 
-    path.forEach(function (element) {
+    var section = document.createElement("section");
+    container.appendChild(section);
+    section.classList.add("News-section");
+    var header = document.createElement("header");
+    container.appendChild(header);
+    header.classList.add("News-section__header");
+    header.innerHTML = "\n            <figure class=\"News-section__figure\">\n                <div class=\"News-section__icon\">\n                    ...\n                </div>\n                <h1 class=\"News-section__title uppercase\">\n                    Section title\n                </h1>\n            </figure>\n        "; // Create button
+
+    var button = document.createElement("button");
+    header.appendChild(button);
+    button.classList.add("News-section__button");
+    var arrow = document.createElement("i");
+    button.appendChild(arrow);
+    arrow.classList.add("fas", "fa-chevron-right", "News-section__arrow-right", "News-section__arrow-right_active");
+    /* button.innerHTML = `
+        <i class="fas fa-chevron-right News-section__arrow-right News-section__arrow-right_active"></i>
+    `; */
+    // Activate list
+
+    button.addEventListener("click", function () {
+      list.classList.toggle("News-section__list_active");
+      arrow.classList.toggle("News-section__arrow-right_active");
+    }); // Create list
+
+    var list = document.createElement("ul");
+    container.appendChild(list);
+    list.classList.add("News-section__list", "News-section__list_active"); // For each item in the path        path.forEach(element =>
+
+    for (var i = 0; i < listLength; i++) {
       //console.log(element);
       // Create: item
       var card = document.createElement("li");
       list.appendChild(card);
       card.classList.add("News-card"); //item.setAttribute("id", data.username); //`Item_${i}`
 
-      card.innerHTML = "\n                <button class=\"News-card__button News-card__archive\">\n                    <i class=\"fas fa-inbox News-card__inbox\"></i>\n                </button>\n                <a class=\"News-card__container\" href=\"".concat(element.url, "\">\n                    <img class=\"News-card__img\" src=\"").concat(element.multimedia[0].url, "\" alt=\"News image\">\n                    <article class=\"News-card__article\">\n                        <h2 class=\"News-card__title\">\n                            ").concat(element.title, "\n                        </h2>\n                        <p class=\"News-card__text\">\n                            text...\n                        </p>\n                    </article>\n                </a>\n            "); // href="${element.url}"
-    });
-  }); // Activate list
+      card.innerHTML = "\n                <button class=\"News-card__button News-card__archive\">\n                    <i class=\"fas fa-inbox News-card__inbox\"></i>\n                </button>\n                <a class=\"News-card__container\" href=\"".concat(path[i].url, "\">\n                    <img class=\"News-card__img\" src=\"").concat(path[i].multimedia[0].url, "\" alt=\"News image\">\n                    <article class=\"News-card__article\">\n                        <h2 class=\"News-card__title\">\n                            ").concat(path[i].title, "\n                        </h2>\n                        <p class=\"News-card__text\">\n                            text...\n                        </p>\n                    </article>\n                </a>\n            "); // href="${element.url}"
+    }
 
-  button.addEventListener("click", function () {
-    list.classList.toggle("News-section__list_active");
-    arrow.classList.toggle("News-section__arrow-right_active");
+    ;
   });
 });
