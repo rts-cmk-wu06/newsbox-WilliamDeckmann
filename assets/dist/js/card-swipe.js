@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   // Element variables
-  var list = document.querySelector(".News-section__list"); // SwipeFunction
+  var container = document.querySelector("#News-container"); // SwipeFunction
 
   var SwipeFunction = function SwipeFunction(e) {
     // Target element
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }; // Add event listener
 
 
-  list.addEventListener("touchstart", function (e) {
+  container.addEventListener("touchstart", function (e) {
     SwipeFunction(e);
   });
 });

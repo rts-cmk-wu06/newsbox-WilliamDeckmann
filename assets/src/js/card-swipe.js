@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // Element variables
-    const list = document.querySelector(".News-section__list");
+    const container = document.querySelector("#News-container");
 
 
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // Add event listener
-    list.addEventListener("touchstart", (e) => {
+    container.addEventListener("touchstart", (e) => {
         SwipeFunction(e);
     });
 });

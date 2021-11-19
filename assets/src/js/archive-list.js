@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // Local storage variables
-    let archiveArray = JSON.parse(localStorage.getItem("deleted"));
+    let archiveArray = JSON.parse(localStorage.getItem("archive"));
+    console.log(archiveArray);
 
     // Element variable
     const list = document.querySelector(".News-section__list");
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let card = document.createElement("li");
         list.appendChild(card);
         card.classList.add("News-card")
+        card.setAttribute("id", element.id);
         card.innerHTML = `
             <button class="News-card__button News-card__remove">
                 <i class="fas fa-trash News-card__trash-can"></i>
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </p>
                 </article>
             </a>
-        `; // href="${element.url}"   // ${element.multimedia[0].url}  // ${element.title} // ${element.url}
+        `;
     });
 
 

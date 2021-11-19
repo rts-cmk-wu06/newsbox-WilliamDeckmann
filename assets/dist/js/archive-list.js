@@ -2,7 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   // Local storage variables
-  var archiveArray = JSON.parse(localStorage.getItem("deleted")); // Element variable
+  var archiveArray = JSON.parse(localStorage.getItem("archive"));
+  console.log(archiveArray); // Element variable
 
   var list = document.querySelector(".News-section__list");
   var button = document.querySelector(".News-section__button");
@@ -13,7 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var card = document.createElement("li");
     list.appendChild(card);
     card.classList.add("News-card");
-    card.innerHTML = "\n            <button class=\"News-card__button News-card__remove\">\n                <i class=\"fas fa-trash News-card__trash-can\"></i>\n            </button>\n            <a class=\"News-card__container\" href=\"".concat(element.url, "\">\n                <img class=\"News-card__img\" src=\"").concat(element.img, "\" alt=\"News image\">\n                <article class=\"News-card__article\">\n                    <h2 class=\"News-card__title\">\n                        ").concat(element.title, "\n                    </h2>\n                    <p class=\"News-card__text\">\n                    ").concat(element.text, "\n                    </p>\n                </article>\n            </a>\n        "); // href="${element.url}"   // ${element.multimedia[0].url}  // ${element.title} // ${element.url}
+    card.setAttribute("id", element.id);
+    card.innerHTML = "\n            <button class=\"News-card__button News-card__remove\">\n                <i class=\"fas fa-trash News-card__trash-can\"></i>\n            </button>\n            <a class=\"News-card__container\" href=\"".concat(element.url, "\">\n                <img class=\"News-card__img\" src=\"").concat(element.img, "\" alt=\"News image\">\n                <article class=\"News-card__article\">\n                    <h2 class=\"News-card__title\">\n                        ").concat(element.title, "\n                    </h2>\n                    <p class=\"News-card__text\">\n                    ").concat(element.text, "\n                    </p>\n                </article>\n            </a>\n        ");
   }); // Activate list
 
   button.addEventListener("click", function () {

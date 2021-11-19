@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Element variables
   var container = document.querySelector("#News-container"); // Array variables
 
-  var archiveArray = []; // SwipeFunction
+  var archiveArray = JSON.parse(localStorage.getItem("archive")); // SwipeFunction
 
   var ArchiveFunction = function ArchiveFunction(e) {
     // Target element
@@ -24,10 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
           img: parent.querySelector(".News-card__container .News-card__img").src,
           title: parent.querySelector(".News-card__container .News-card__article .News-card__title").textContent,
           text: parent.querySelector(".News-card__container .News-card__article .News-card__text").textContent
-        }; // Push archived items
+        }; // Filter archived items
 
-        archiveArray.push(userObject); // JSON.stringify(userObject)
-
+        archiveArray = archiveArray.filter(function (item) {
+          return userObject.id != item.id;
+        });
         localStorage.setItem("archive", JSON.stringify(archiveArray)); // Animate
 
         article.style.transform = "translateX(0px)";

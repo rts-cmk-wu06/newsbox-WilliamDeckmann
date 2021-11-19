@@ -13,76 +13,94 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // API variables
+  // API object
   var urlObject = {
-    "World": "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
-    "Health": "https://api.nytimes.com/svc/topstories/v2//health.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
-    "Sports": "https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
-    "Business": "https://api.nytimes.com/svc/topstories/v2/business.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
-    "Travel": "https://api.nytimes.com/svc/topstories/v2/travel.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5"
-  };
-  var world = "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5";
-  var health = "https://api.nytimes.com/svc/topstories/v2//health.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5";
-  var sports = "https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5";
-  var business = "https://api.nytimes.com/svc/topstories/v2/business.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5";
-  var travel = "https://api.nytimes.com/svc/topstories/v2/travel.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5"; // Url variable
+    "world": "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
+    "health": "https://api.nytimes.com/svc/topstories/v2//health.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
+    "sports": "https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
+    "business": "https://api.nytimes.com/svc/topstories/v2/business.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5",
+    "travel": "https://api.nytimes.com/svc/topstories/v2/travel.json?api-key=4TFLMLQoawDilugcroiDSgofs6otpAi5"
+  }; // For each entry in API object
 
-  var url = world; // Element variable
-
-  var container = document.querySelector(".News-container"); // List length variable
-
-  var listLength = 5;
   Object.entries(urlObject).forEach(function (element) {
     var _element = _slicedToArray(element, 2),
         key = _element[0],
         value = _element[1];
 
-    console.log(key);
-    console.log(value);
-  }); // Fetch API data
-
-  axios.get(url).then(function (response) {
-    // Path variable
-    var path = response.data.results; // Create section
-
-    var section = document.createElement("section");
-    container.appendChild(section);
-    section.classList.add("News-section");
-    var header = document.createElement("header");
-    container.appendChild(header);
-    header.classList.add("News-section__header");
-    header.innerHTML = "\n            <figure class=\"News-section__figure\">\n                <div class=\"News-section__icon\">\n                    ...\n                </div>\n                <h1 class=\"News-section__title uppercase\">\n                    Section title\n                </h1>\n            </figure>\n        "; // Create button
-
-    var button = document.createElement("button");
-    header.appendChild(button);
-    button.classList.add("News-section__button");
-    var arrow = document.createElement("i");
-    button.appendChild(arrow);
-    arrow.classList.add("fas", "fa-chevron-right", "News-section__arrow-right", "News-section__arrow-right_active");
-    /* button.innerHTML = `
-        <i class="fas fa-chevron-right News-section__arrow-right News-section__arrow-right_active"></i>
-    `; */
-    // Activate list
-
-    button.addEventListener("click", function () {
-      list.classList.toggle("News-section__list_active");
-      arrow.classList.toggle("News-section__arrow-right_active");
-    }); // Create list
-
-    var list = document.createElement("ul");
-    container.appendChild(list);
-    list.classList.add("News-section__list", "News-section__list_active"); // For each item in the path        path.forEach(element =>
-
-    for (var i = 0; i < listLength; i++) {
-      //console.log(element);
-      // Create: item
-      var card = document.createElement("li");
-      list.appendChild(card);
-      card.classList.add("News-card"); //item.setAttribute("id", data.username); //`Item_${i}`
-
-      card.innerHTML = "\n                <button class=\"News-card__button News-card__archive\">\n                    <i class=\"fas fa-inbox News-card__inbox\"></i>\n                </button>\n                <a class=\"News-card__container\" href=\"".concat(path[i].url, "\">\n                    <img class=\"News-card__img\" src=\"").concat(path[i].multimedia[0].url, "\" alt=\"News image\">\n                    <article class=\"News-card__article\">\n                        <h2 class=\"News-card__title\">\n                            ").concat(path[i].title, "\n                        </h2>\n                        <p class=\"News-card__text\">\n                            text...\n                        </p>\n                    </article>\n                </a>\n            "); // href="${element.url}"
+    if (localStorage.getItem(key) == "true") {
+      CreateNewsCard(key, value);
     }
 
     ;
-  });
+  }); // Array variables
+
+  var archiveArray = JSON.parse(localStorage.getItem("archive"));
+  console.log(archiveArray); // Id array
+
+  var idArray = [];
+  archiveArray.forEach(function (element) {
+    idArray.push(element.id);
+  }); // Element variable
+
+  var container = document.querySelector(".News-container"); // List length variable
+
+  var listLength = 5; // Create news card
+
+  function CreateNewsCard(title, url) {
+    // Fetch API data
+    axios.get(url).then(function (response) {
+      // Path variable
+      var path = response.data.results; // Make first letter uppercase
+
+      function FirstLetterUppercase(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+
+      ; // Create section
+
+      var section = document.createElement("section");
+      container.appendChild(section);
+      section.classList.add("News-section");
+      var header = document.createElement("header");
+      container.appendChild(header);
+      header.classList.add("News-section__header");
+      header.innerHTML = "\n                <figure class=\"News-section__figure\">\n                    <div class=\"News-section__icon\">\n                        ...\n                    </div>\n                    <h1 class=\"News-section__title uppercase\">\n                        ".concat(FirstLetterUppercase(title), "\n                    </h1>\n                </figure>\n            "); // Create button
+
+      var button = document.createElement("button");
+      header.appendChild(button);
+      button.classList.add("News-section__button");
+      var arrow = document.createElement("i");
+      button.appendChild(arrow);
+      arrow.classList.add("fas", "fa-chevron-right", "News-section__arrow-right", "News-section__arrow-right_active"); // Create list
+
+      var list = document.createElement("ul");
+      container.appendChild(list);
+      list.classList.add("News-section__list", "News-section__list_active"); // Activate list
+
+      button.addEventListener("click", function () {
+        list.classList.toggle("News-section__list_active");
+        arrow.classList.toggle("News-section__arrow-right_active");
+      }); // For each item in the API
+
+      for (var i = 0; i < listLength; i++) {
+        // Turn news card title into id
+        var id = path[i].title.split(' ').join('_'); // Skip if exists in archive
+
+        if (!id.includes(idArray[i])) {
+          // Create: item
+          var card = document.createElement("li");
+          list.appendChild(card);
+          card.classList.add("News-card");
+          card.setAttribute("id", id);
+          card.innerHTML = "\n                        <button class=\"News-card__button News-card__archive\">\n                            <i class=\"fas fa-inbox News-card__inbox\"></i>\n                        </button>\n                        <a class=\"News-card__container\" href=\"".concat(path[i].url, "\">\n                            <img class=\"News-card__img\" src=\"").concat(path[i].multimedia[0].url, "\" alt=\"News image\">\n                            <article class=\"News-card__article\">\n                                <h2 class=\"News-card__title\">\n                                    ").concat(path[i].title, "\n                                </h2>\n                                <p class=\"News-card__text\">\n                                    text...\n                                </p>\n                            </article>\n                        </a>\n                    ");
+        }
+
+        ;
+      }
+
+      ;
+    });
+  }
+
+  ;
 });

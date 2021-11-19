@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Element variables
   var world = document.querySelector("#Settings-panel__world");
   var health = document.querySelector("#Settings-panel__health");
-  var sport = document.querySelector("#Settings-panel__sport");
+  var sports = document.querySelector("#Settings-panel__sports");
   var business = document.querySelector("#Settings-panel__business");
   var travel = document.querySelector("#Settings-panel__travel"); // Category switch function
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   CategorySwitchFunction(world);
   CategorySwitchFunction(health);
-  CategorySwitchFunction(sport);
+  CategorySwitchFunction(sports);
   CategorySwitchFunction(business);
   CategorySwitchFunction(travel);
 });

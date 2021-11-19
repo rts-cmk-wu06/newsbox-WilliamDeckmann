@@ -1,6 +1,9 @@
 /* News section */
-.News-section {
+.News-section, .News-container {
+    width: 100%;
+ };
 
+.News-section {
     &__header {
         padding: 11px 17px 11px 17px;
         display: flex;

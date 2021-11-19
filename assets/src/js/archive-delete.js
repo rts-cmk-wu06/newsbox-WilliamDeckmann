@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector("#News-container");
 
     // Array variables
-    let archiveArray = [];
+    let archiveArray = JSON.parse(localStorage.getItem("archive"));
 
     
 
@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     text: parent.querySelector(".News-card__container .News-card__article .News-card__text").textContent
                 };
 
-                // Push archived items
-                archiveArray.push(userObject); // JSON.stringify(userObject)
+                // Filter archived items
+                archiveArray = archiveArray.filter((item) => userObject.id != item.id);
                 localStorage.setItem("archive", JSON.stringify(archiveArray));
 
                 // Animate
