@@ -9,7 +9,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid $fossil;
+        background-color: var(--background);
+        border-bottom: 1px solid var(--border);
     };
 
     &__figure {
@@ -18,26 +19,36 @@
         gap: 11px;
     };
 
+    &__button {
+        width: 35px;
+        text-align: center;
+    }
+
     &__icon {
         height: 35px
     }
 
     &__title, &__arrow-right {
         @extend %section-header;
+        color: var(--primary);
     };
 
     &__arrow-right {
-        &_active {
-            transform: rotate(90deg);
+        transform: rotate(90deg);
+        transition: transform .5s ease;
+        &_closed {
+            transform: rotate(0deg);
         };
     };
 
     &__list {
-        height: 0px;
+        height: auto;
+        background-color: var(--background);
         overflow: hidden;
+        transition: height 1s ease;
         
-        &_active {
-            height: 100%;
+        &_closed {
+            height: 0px;
         };
     };
 };

@@ -1,41 +1,81 @@
-/* Colors: primary */
+/* Original color palette
 $sage: #87BCBF !default;
 $rust: #D97D54 !default;
 $drab: #324755 !default;
 $danger: #D95454 !default;
 
-/* Colors: secondary */
 $ice: #F0F3F4 !default;
 $fossil: #C8D1D3 !default;
 $sand: #B9B0A2 !default;
 $alice-blue: #ECEFF0 !default;
 
-/* Colors: typography */
 $onyx: #1B1C20 !default;
 $slate: #6E8CA0 !default;
 $snow: #FFFFFF !default;
 $dim-grey: #707070 !default;
+*/
 
+:root {
+    /* Base */
+    --background: #FFFFFF;
+    --alternative: #ECEFF0;
+    --border: #C8D1D3;
 
+    /* Text */
+    --theme-main: #87BCBF;
+    --primary: #324755;
+    --secondary: #6E8CA0;
+    
+    /* Search */
+    --search-bar: #F0F3F4;
+    --search-text: #1B1C20;
+    --search-icon: #C8D1D3;
 
-/* Array: primary */
-$primary: (
-    "blue": $sage,
-    "orange": $rust,
-    "black": $drab,
-    "red": $danger,
-);
+    /* Settings */
+    --settings-bkg: #ECEFF0;
+    --settings-active: #87BCBF;
+    --settings-title: #87BCBF;
+    --settings-sub: #707070;
 
-/* Array: secondary */
-$secondary: (
-    "white": $ice,
-    "grey": $fossil,
-    "brown": $sand,
-);
+    /* Extra */
+    --dark-mode-brd: #C8D1D3;
+    --dark-mode-text: #1B1C20;
+    --version-info: #6E8CA0;
 
-/* Array: typography */
-$typography: (
-    "black": $onyx,
-    "grey": $slate,
-    "white": $snow,
-);
+    /* Card */
+    --archive: #87BCBF;
+    --remove: #D95454;
+    --card-icon: #D97D54;
+};
+
+.dark-mode {
+    /* Base */
+    --background: #1B1C20;
+    --border: #C8D1D3;
+
+    /* Text */
+    --theme-main: #87BCBF;
+    --primary: #6E8CA0;
+    --secondary: #C8D1D3;
+    
+    /* Search */
+    --search-bar: #F0F3F4;
+    --search-text: #1B1C20;
+    --search-icon: #C8D1D3;
+
+    /* Settings */
+    --settings-bkg: #324755;
+    --settings-active: #87BCBF;
+    --settings-title: #87BCBF;
+    --settings-sub: #1B1C20;
+
+    /* Extra */
+    --dark-mode-brd: #6E8CA0;
+    --dark-mode-text: #1B1C20;
+    --version-info: #6E8CA0;
+
+    /* Card */
+    --archive: #87BCBF;
+    --remove: #D95454;
+    --card-icon: #D97D54;
+};

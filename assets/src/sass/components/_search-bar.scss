@@ -1,13 +1,14 @@
 .Search-section {
     width: 100%;
     padding: 17px 16px 20px 16px;
-    border-bottom: 1px solid $fossil;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
 };
 
 .Search-bar {
     padding: 14px 20px 14px 37px;
     border-radius: 5px;
-    background-color: $ice;
+    background-color: var(--search-bar);
 
     &__form {
         width: 100%;
@@ -22,15 +23,15 @@
         width: 100%;
         border: none;
         background: none;
-        color: $slate;
+        color: var(--search-text);
 
-        &:active {
+        &:focus {
             outline: none;
         };
     };
 
     &__magnifying-glass {
         font-size: 17px;
-        color: $fossil
+        color: var(--search-icon);
     };
 };

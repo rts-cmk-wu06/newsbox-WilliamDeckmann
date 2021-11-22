@@ -1,12 +1,77 @@
 /* Math */
 /* @use "sass:math"; */
 /* Variables & function */
-/* Colors: primary */
-/* Colors: secondary */
-/* Colors: typography */
-/* Array: primary */
-/* Array: secondary */
-/* Array: typography */
+/* Original color palette
+$sage: #87BCBF !default;
+$rust: #D97D54 !default;
+$drab: #324755 !default;
+$danger: #D95454 !default;
+
+$ice: #F0F3F4 !default;
+$fossil: #C8D1D3 !default;
+$sand: #B9B0A2 !default;
+$alice-blue: #ECEFF0 !default;
+
+$onyx: #1B1C20 !default;
+$slate: #6E8CA0 !default;
+$snow: #FFFFFF !default;
+$dim-grey: #707070 !default;
+*/
+:root {
+  /* Base */
+  --background: #FFFFFF;
+  --alternative: #ECEFF0;
+  --border: #C8D1D3;
+  /* Text */
+  --theme-main: #87BCBF;
+  --primary: #324755;
+  --secondary: #6E8CA0;
+  /* Search */
+  --search-bar: #F0F3F4;
+  --search-text: #1B1C20;
+  --search-icon: #C8D1D3;
+  /* Settings */
+  --settings-bkg: #ECEFF0;
+  --settings-active: #87BCBF;
+  --settings-title: #87BCBF;
+  --settings-sub: #707070;
+  /* Extra */
+  --dark-mode-brd: #C8D1D3;
+  --dark-mode-text: #1B1C20;
+  --version-info: #6E8CA0;
+  /* Card */
+  --archive: #87BCBF;
+  --remove: #D95454;
+  --card-icon: #D97D54;
+}
+
+.dark-mode {
+  /* Base */
+  --background: #1B1C20;
+  --border: #C8D1D3;
+  /* Text */
+  --theme-main: #87BCBF;
+  --primary: #6E8CA0;
+  --secondary: #C8D1D3;
+  /* Search */
+  --search-bar: #F0F3F4;
+  --search-text: #1B1C20;
+  --search-icon: #C8D1D3;
+  /* Settings */
+  --settings-bkg: #324755;
+  --settings-active: #87BCBF;
+  --settings-title: #87BCBF;
+  --settings-sub: #1B1C20;
+  /* Extra */
+  --dark-mode-brd: #6E8CA0;
+  --dark-mode-text: #1B1C20;
+  --version-info: #6E8CA0;
+  /* Card */
+  --archive: #87BCBF;
+  --remove: #D95454;
+  --card-icon: #D97D54;
+}
+
 /* Font size */
 .Settings-section__title {
   font-size: 4em;
@@ -106,8 +171,11 @@ ul {
   border: 1px solid red;
 }
 
-/* Colors */
-/* ... */
+/* Mix */
+.uppercase {
+  text-transform: uppercase;
+}
+
 /* Components */
 /* Header */
 .Header {
@@ -116,7 +184,8 @@ ul {
   display: grid;
   grid-template-columns: 50px 1fr 50px;
   align-items: center;
-  border-bottom: 1px solid #C8D1D3;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
 }
 .Header__link-left {
   text-align: left;
@@ -125,7 +194,7 @@ ul {
   text-align: right;
 }
 .Header__title, .Header__inbox, .Header__gear, .Header__arrow-left {
-  color: #324755;
+  color: var(--primary);
 }
 .Header__title {
   justify-self: center;
@@ -134,13 +203,14 @@ ul {
 .Search-section {
   width: 100%;
   padding: 17px 16px 20px 16px;
-  border-bottom: 1px solid #C8D1D3;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
 }
 
 .Search-bar {
   padding: 14px 20px 14px 37px;
   border-radius: 5px;
-  background-color: #F0F3F4;
+  background-color: var(--search-bar);
 }
 .Search-bar__form {
   width: 100%;
@@ -153,14 +223,14 @@ ul {
   width: 100%;
   border: none;
   background: none;
-  color: #6E8CA0;
+  color: var(--search-text);
 }
-.Search-bar__input:active {
+.Search-bar__input:focus {
   outline: none;
 }
 .Search-bar__magnifying-glass {
   font-size: 17px;
-  color: #C8D1D3;
+  color: var(--search-icon);
 }
 
 /* News section */
@@ -173,25 +243,39 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #C8D1D3;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
 }
 .News-section__figure {
   display: flex;
   align-items: center;
   gap: 11px;
 }
+.News-section__button {
+  width: 35px;
+  text-align: center;
+}
 .News-section__icon {
   height: 35px;
 }
-.News-section__arrow-right_active {
+.News-section__title, .News-section__arrow-right {
+  color: var(--primary);
+}
+.News-section__arrow-right {
   transform: rotate(90deg);
+  transition: transform 0.5s ease;
+}
+.News-section__arrow-right_closed {
+  transform: rotate(0deg);
 }
 .News-section__list {
-  height: 0px;
+  height: auto;
+  background-color: var(--background);
   overflow: hidden;
+  transition: height 1s ease;
 }
-.News-section__list_active {
-  height: 100%;
+.News-section__list_closed {
+  height: 0px;
 }
 
 /* News card */
@@ -202,7 +286,7 @@ ul {
   grid-template-columns: 1fr 100px;
   grid-auto-rows: 100px;
   overflow: hidden;
-  border-bottom: 1px solid #C8D1D3;
+  border-bottom: 1px solid var(--border);
   transition: height 0.4s ease-out;
 }
 .News-card_collapsed {
@@ -218,19 +302,19 @@ ul {
 .News-card__button {
   grid-column: 2/3;
   justify-content: center;
-  color: white;
+  color: var(--background);
 }
 .News-card__archive {
-  background-color: #87BCBF;
+  background-color: var(--archive);
 }
 .News-card__remove {
-  background-color: #D95454;
+  background-color: var(--remove);
 }
 .News-card__container {
   padding: 15px 43px 15px 19px;
   grid-column: 1/3;
   gap: 21px;
-  background-color: white;
+  background-color: var(--background);
   transition: transform 0.15s ease;
 }
 .News-card__img {
@@ -238,13 +322,13 @@ ul {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  background-color: #B9B0A2;
+  background-color: var(--border);
 }
 .News-card__title {
-  color: #324755;
+  color: var(--primary);
 }
 .News-card__text {
-  color: #6E8CA0;
+  color: var(--secondary);
   padding: 1px;
 }
 
@@ -253,7 +337,7 @@ ul {
   width: 100%;
   height: 100%;
   padding: 31px 18px 30px 18px;
-  background-color: #ECEFF0;
+  background-color: var(--settings-bkg);
 }
 .Settings-section__header {
   margin-bottom: 63px;
@@ -262,10 +346,10 @@ ul {
   align-items: center;
 }
 .Settings-section__title {
-  color: #87BCBF;
+  color: var(--settings-title);
 }
 .Settings-section__sub-title {
-  color: #707070;
+  color: var(--settings-sub);
 }
 .Settings-section__footer {
   margin-top: 70px;
@@ -276,17 +360,18 @@ ul {
 }
 .Settings-section .Dark-mode-toggle {
   padding: 17px 34px 17px 34px;
-  border: 1px solid #C8D1D3;
+  border: 1px solid var(--dark-mode-brd);
   border-radius: 29px;
-  color: #324755;
+  color: var(--dark-mode-text);
 }
 .Settings-section .Version-info {
-  color: #6E8CA0;
+  color: var(--version-info);
 }
 
 /* Settings panel */
 .Settings-panel {
   border-radius: 16px;
+  background-color: var(--background);
   overflow: hidden;
 }
 .Settings-panel__category {
@@ -295,14 +380,13 @@ ul {
   justify-content: space-between;
   align-items: center;
   gap: 22px;
-  border-bottom: 1px solid #F0F3F4;
-  background-color: white;
+  border-bottom: 1px solid var(--border);
 }
 .Settings-panel__category:last-child {
   border: none;
 }
 .Settings-panel__title {
-  color: #324755;
+  color: var(--primary);
 }
 .Settings-panel__button {
   width: 55px;
@@ -310,17 +394,17 @@ ul {
   display: flex;
   justify-content: flex-start;
   border-radius: 15px;
-  background-color: #ECEFF0;
+  background-color: var(--settings-bkg);
   transition: background-color 0.2s;
 }
 .Settings-panel__button_active {
-  background-color: #87BCBF;
+  background-color: var(--settings-active);
   justify-content: flex-end;
 }
 .Settings-panel__icon {
   margin: 2px;
   font-size: 26px;
-  color: white;
+  color: var(--background);
 }
 
 /* Utilities */

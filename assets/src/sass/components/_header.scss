@@ -5,7 +5,8 @@
     display: grid;
     grid-template-columns: 50px 1fr 50px;
     align-items: center;
-    border-bottom: 1px solid $fossil;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--background);
 
     &__link-left {
         text-align: left;
@@ -17,10 +18,10 @@
 
     &__title, &__inbox, &__gear, &__arrow-left {
         @extend %section-header;
-        color: $drab;
+        color: var(--primary);
     };
 
     &__title {
         justify-self: center;
     };
-}
+};

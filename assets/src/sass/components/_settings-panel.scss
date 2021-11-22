@@ -1,6 +1,7 @@
 /* Settings panel */
 .Settings-panel {
     border-radius: 16px;
+    background-color: var(--background);
     overflow: hidden;
 
     &__category {
@@ -9,8 +10,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 22px;
-        border-bottom: 1px solid $ice;
-        background-color: white;
+        border-bottom: 1px solid var(--border);
         &:last-child {
             border: none;
         }
@@ -18,7 +18,7 @@
 
     &__title {
         @extend %section-header;
-        color: $drab;
+        color: var(--primary);
     };
 
     &__button {
@@ -27,11 +27,11 @@
         display: flex;
         justify-content: flex-start;
         border-radius: 15px;
-        background-color: $alice-blue;
+        background-color: var(--settings-bkg);
         transition: background-color .2s;
 
         &_active {
-            background-color: $sage;
+            background-color: var(--settings-active);
             justify-content: flex-end;
         };
     };
@@ -39,6 +39,6 @@
     &__icon {
         margin: 2px;
         font-size: 26px;
-        color: white;
+        color: var(--background);
     };
 };

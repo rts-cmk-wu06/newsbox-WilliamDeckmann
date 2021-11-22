@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Element variable
-    const container = document.querySelector(".News-container");
+    const container = document.querySelector("#News-container");
 
     // List length variable
     let listLength = 5;
@@ -76,19 +76,21 @@ document.addEventListener("DOMContentLoaded", () => {
             button.classList.add("News-section__button");
             let arrow = document.createElement("i");
             button.appendChild(arrow);
-            arrow.classList.add("fas", "fa-chevron-right", "News-section__arrow-right", "News-section__arrow-right_active");
+            arrow.classList.add("fas", "fa-chevron-right", "News-section__arrow-right");
     
             // Create list
             let list = document.createElement("ul");
             container.appendChild(list);
-            list.classList.add("News-section__list", "News-section__list_active");
+            list.classList.add("News-section__list");
 
+            // List height
+            let newHeight = 0;
 
 
             // Activate list
             button.addEventListener("click", () => {
-                list.classList.toggle("News-section__list_active");
-                arrow.classList.toggle("News-section__arrow-right_active");
+                list.classList.toggle("News-section__list_closed");
+                arrow.classList.toggle("News-section__arrow-right_closed");
             });
     
     
@@ -101,6 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Skip if exists in archive
                 if(!id.includes(idArray[i])) {
+
+                    // Increase list height
+                    newHeight += 100;
+                    list.style.height = newHeight + "px";
 
                     // Create: item
                     let card = document.createElement("li");
@@ -118,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     ${path[i].title}
                                 </h2>
                                 <p class="News-card__text">
-                                    text...
+                                    ${path[i].abstract.substring(0,75)}...
                                 </p>
                             </article>
                         </a>

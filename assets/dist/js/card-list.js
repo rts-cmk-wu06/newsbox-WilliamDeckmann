@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     idArray.push(element.id);
   }); // Element variable
 
-  var container = document.querySelector(".News-container"); // List length variable
+  var container = document.querySelector("#News-container"); // List length variable
 
   var listLength = 5; // Create news card
 
@@ -71,15 +71,17 @@ document.addEventListener("DOMContentLoaded", function () {
       button.classList.add("News-section__button");
       var arrow = document.createElement("i");
       button.appendChild(arrow);
-      arrow.classList.add("fas", "fa-chevron-right", "News-section__arrow-right", "News-section__arrow-right_active"); // Create list
+      arrow.classList.add("fas", "fa-chevron-right", "News-section__arrow-right"); // Create list
 
       var list = document.createElement("ul");
       container.appendChild(list);
-      list.classList.add("News-section__list", "News-section__list_active"); // Activate list
+      list.classList.add("News-section__list"); // List height
+
+      var newHeight = 0; // Activate list
 
       button.addEventListener("click", function () {
-        list.classList.toggle("News-section__list_active");
-        arrow.classList.toggle("News-section__arrow-right_active");
+        list.classList.toggle("News-section__list_closed");
+        arrow.classList.toggle("News-section__arrow-right_closed");
       }); // For each item in the API
 
       for (var i = 0; i < listLength; i++) {
@@ -87,12 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
         var id = path[i].title.split(' ').join('_'); // Skip if exists in archive
 
         if (!id.includes(idArray[i])) {
-          // Create: item
+          // Increase list height
+          newHeight += 100;
+          list.style.height = newHeight + "px"; // Create: item
+
           var card = document.createElement("li");
           list.appendChild(card);
           card.classList.add("News-card");
           card.setAttribute("id", id);
-          card.innerHTML = "\n                        <button class=\"News-card__button News-card__archive\">\n                            <i class=\"fas fa-inbox News-card__inbox\"></i>\n                        </button>\n                        <a class=\"News-card__container\" href=\"".concat(path[i].url, "\">\n                            <img class=\"News-card__img\" src=\"").concat(path[i].multimedia[0].url, "\" alt=\"News image\">\n                            <article class=\"News-card__article\">\n                                <h2 class=\"News-card__title\">\n                                    ").concat(path[i].title, "\n                                </h2>\n                                <p class=\"News-card__text\">\n                                    text...\n                                </p>\n                            </article>\n                        </a>\n                    ");
+          card.innerHTML = "\n                        <button class=\"News-card__button News-card__archive\">\n                            <i class=\"fas fa-inbox News-card__inbox\"></i>\n                        </button>\n                        <a class=\"News-card__container\" href=\"".concat(path[i].url, "\">\n                            <img class=\"News-card__img\" src=\"").concat(path[i].multimedia[0].url, "\" alt=\"News image\">\n                            <article class=\"News-card__article\">\n                                <h2 class=\"News-card__title\">\n                                    ").concat(path[i].title, "\n                                </h2>\n                                <p class=\"News-card__text\">\n                                    ").concat(path[i]["abstract"].substring(0, 75), "...\n                                </p>\n                            </article>\n                        </a>\n                    ");
         }
 
         ;
