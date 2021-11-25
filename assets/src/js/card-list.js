@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     archiveArray.forEach(element => {
         idArray.push(element.id);
     });
+    console.log(idArray);
 
     // Element variable
     const container = document.querySelector("#News-container");
@@ -87,10 +88,17 @@ document.addEventListener("DOMContentLoaded", () => {
             let newHeight = 0;
 
 
-            // Activate list
+    
             button.addEventListener("click", () => {
-                list.classList.toggle("News-section__list_closed");
-                arrow.classList.toggle("News-section__arrow-right_closed");
+                if(list.classList.contains("News-section__list_closed")) {
+                    list.classList.remove("News-section__list_closed");
+                    list.style.height = newHeight + "px";
+                    arrow.classList.remove("News-section__arrow-right_closed");
+                }else{
+                    list.classList.add("News-section__list_closed");
+                    list.style.height = "0px";
+                    arrow.classList.add("News-section__arrow-right_closed");
+                };
             });
     
     
@@ -98,11 +106,13 @@ document.addEventListener("DOMContentLoaded", () => {
             // For each item in the API
             for(let i = 0; i < listLength; i++) {
     
-                // Turn news card title into id
-                let id = path[i].title.split(' ').join('_');
+                // Turn news card url into id
+                let id = path[i].short_url.replace("https://nyti.ms/", "");
+
+
 
                 // Skip if exists in archive
-                if(!id.includes(idArray[i])) {
+                if(!idArray.includes(id)) {
 
                     // Increase list height
                     newHeight += 100;

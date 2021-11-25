@@ -9,6 +9,9 @@
     border-bottom: 1px solid var(--border);
     transition: height .4s ease-out;
 
+    &:last-child {
+        border-bottom: none;
+    };
     
     &_collapsed {
         height: 0;

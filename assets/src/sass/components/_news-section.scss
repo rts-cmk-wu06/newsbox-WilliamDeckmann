@@ -1,4 +1,8 @@
 /* News section */
+.News-container {
+    height: 100%;
+};
+
 .News-section, .News-container {
     width: 100%;
  };
@@ -43,6 +47,7 @@
 
     &__list {
         height: auto;
+        border-bottom: 1px solid var(--border);
         background-color: var(--background);
         overflow: hidden;
         transition: height 1s ease;

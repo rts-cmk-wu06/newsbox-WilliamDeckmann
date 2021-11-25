@@ -15,8 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let parent = e.target.parentElement;
 
         // Element variables
+        let list = parent.parentElement;
         let article = parent.querySelector(".News-card__container");
         let button = parent.querySelector(".News-card__button");
+
+        // List height
+        let newHeight = list.offsetHeight;
 
         // If parent is correct
         if(parent.classList == "News-card") {
@@ -41,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 article.style.transform = `translateX(0px)`;
                 parent.classList.add("animate__animated", "animate__backOutLeft");
                 setTimeout(() => {parent.classList.add("News-card_collapsed")}, 500);
+                newHeight -= 100;
+                setTimeout(() => list.style.height = newHeight + "px", 400); // Set to 400 instead of 500 because of code delay
                 setTimeout(() => {parent.remove()}, 500 + 500); // Wait the time it takes for all animations to run
 
                 

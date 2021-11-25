@@ -10,8 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Target element
     var parent = e.target.parentElement; // Element variables
 
+    var list = parent.parentElement;
     var article = parent.querySelector(".News-card__container");
-    var button = parent.querySelector(".News-card__button"); // If parent is correct
+    var button = parent.querySelector(".News-card__button"); // List height
+
+    var newHeight = list.offsetHeight; // If parent is correct
 
     if (parent.classList == "News-card") {
       // Delete
@@ -36,6 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
           parent.classList.add("News-card_collapsed");
         }, 500);
+        newHeight -= 100;
+        setTimeout(function () {
+          return list.style.height = newHeight + "px";
+        }, 400); // Set to 400 instead of 500 because of code delay
+
         setTimeout(function () {
           parent.remove();
         }, 500 + 500); // Wait the time it takes for all animations to run

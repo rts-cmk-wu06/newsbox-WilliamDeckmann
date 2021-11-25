@@ -40,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var idArray = [];
   archiveArray.forEach(function (element) {
     idArray.push(element.id);
-  }); // Element variable
+  });
+  console.log(idArray); // Element variable
 
   var container = document.querySelector("#News-container"); // List length variable
 
@@ -77,18 +78,26 @@ document.addEventListener("DOMContentLoaded", function () {
       container.appendChild(list);
       list.classList.add("News-section__list"); // List height
 
-      var newHeight = 0; // Activate list
-
+      var newHeight = 0;
       button.addEventListener("click", function () {
-        list.classList.toggle("News-section__list_closed");
-        arrow.classList.toggle("News-section__arrow-right_closed");
+        if (list.classList.contains("News-section__list_closed")) {
+          list.classList.remove("News-section__list_closed");
+          list.style.height = newHeight + "px";
+          arrow.classList.remove("News-section__arrow-right_closed");
+        } else {
+          list.classList.add("News-section__list_closed");
+          list.style.height = "0px";
+          arrow.classList.add("News-section__arrow-right_closed");
+        }
+
+        ;
       }); // For each item in the API
 
       for (var i = 0; i < listLength; i++) {
-        // Turn news card title into id
-        var id = path[i].title.split(' ').join('_'); // Skip if exists in archive
+        // Turn news card url into id
+        var id = path[i].short_url.replace("https://nyti.ms/", ""); // Skip if exists in archive
 
-        if (!id.includes(idArray[i])) {
+        if (!idArray.includes(id)) {
           // Increase list height
           newHeight += 100;
           list.style.height = newHeight + "px"; // Create: item

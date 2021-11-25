@@ -5,14 +5,21 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(archiveArray);
 
     // Element variable
-    const list = document.querySelector(".News-section__list");
-    const button = document.querySelector(".News-section__button");
-    const arrow = document.querySelector(".News-section__arrow-right");
+    const list = document.querySelector("#News-section__list");
+    const button = document.querySelector("#News-section__button");
+    const arrow = document.querySelector("#News-section__arrow-right");
+
+    // List height
+    let newHeight = 0;
 
 
 
     // For each item in the archive array
     archiveArray.forEach(element => {
+
+        // Increase list height
+        newHeight += 100;
+        list.style.height = newHeight + "px";
 
         // Create: item
         let card = document.createElement("li");
@@ -41,7 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Activate list
     button.addEventListener("click", () => {
-        list.classList.toggle("News-section__list_active");
-        arrow.classList.toggle("News-section__arrow-right_active");
+        if(list.classList.contains("News-section__list_closed")) {
+            list.classList.remove("News-section__list_closed");
+            list.style.height = newHeight + "px";
+            arrow.classList.remove("News-section__arrow-right_closed");
+        }else{
+            list.classList.add("News-section__list_closed");
+            list.style.height = "0px";
+            arrow.classList.add("News-section__arrow-right_closed");
+        };
     });
 });

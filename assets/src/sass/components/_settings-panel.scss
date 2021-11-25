@@ -25,15 +25,22 @@
         width: 55px;
         height: 30px;
         display: flex;
-        justify-content: flex-start;
         border-radius: 15px;
         background-color: var(--settings-bkg);
-        transition: background-color .2s;
+        
 
-        &_active {
+        &_active{
             background-color: var(--settings-active);
-            justify-content: flex-end;
         };
+
+        &_active .Settings-panel__container {
+            width: 100%;
+        };
+    };
+
+    &__container{
+        width: 0px;
+        transition: width .5s;
     };
 
     &__icon {

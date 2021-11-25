@@ -1,5 +1,3 @@
-/* Math */
-/* @use "sass:math"; */
 /* Variables & function */
 /* Original color palette
 $sage: #87BCBF !default;
@@ -111,6 +109,7 @@ $dim-grey: #707070 !default;
 /* RESETS */
 * {
   box-sizing: border-box;
+  transition: all 0.5s;
 }
 
 html, body {
@@ -157,6 +156,7 @@ ul {
 }
 
 .Wrapper {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,6 +165,7 @@ ul {
 .Main {
   max-width: 828px;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -234,6 +235,10 @@ ul {
 }
 
 /* News section */
+.News-container {
+  height: 100%;
+}
+
 .News-section, .News-container {
   width: 100%;
 }
@@ -270,6 +275,7 @@ ul {
 }
 .News-section__list {
   height: auto;
+  border-bottom: 1px solid var(--border);
   background-color: var(--background);
   overflow: hidden;
   transition: height 1s ease;
@@ -288,6 +294,9 @@ ul {
   overflow: hidden;
   border-bottom: 1px solid var(--border);
   transition: height 0.4s ease-out;
+}
+.News-card:last-child {
+  border-bottom: none;
 }
 .News-card_collapsed {
   height: 0;
@@ -392,20 +401,21 @@ ul {
   width: 55px;
   height: 30px;
   display: flex;
-  justify-content: flex-start;
   border-radius: 15px;
   background-color: var(--settings-bkg);
-  transition: background-color 0.2s;
 }
 .Settings-panel__button_active {
   background-color: var(--settings-active);
-  justify-content: flex-end;
+}
+.Settings-panel__button_active .Settings-panel__container {
+  width: 100%;
+}
+.Settings-panel__container {
+  width: 0px;
+  transition: width 0.5s;
 }
 .Settings-panel__icon {
   margin: 2px;
   font-size: 26px;
   color: var(--background);
 }
-
-/* Utilities */
-/* ... */
