@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     });
 
+
+    
     // Array variables
     let archiveArray = JSON.parse(localStorage.getItem("archive"));
     console.log(archiveArray);
@@ -26,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     archiveArray.forEach(element => {
         idArray.push(element.id);
     });
-    console.log(idArray);
 
     // Element variable
     const container = document.querySelector("#News-container");

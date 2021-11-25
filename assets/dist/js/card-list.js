@@ -40,8 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var idArray = [];
   archiveArray.forEach(function (element) {
     idArray.push(element.id);
-  });
-  console.log(idArray); // Element variable
+  }); // Element variable
 
   var container = document.querySelector("#News-container"); // List length variable
 
