@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector("#News-container");
 
     // Array variables
-    let archiveArray = JSON.parse(localStorage.getItem("archive"));
+    let archiveArray = [];
+    if (localStorage.getItem("archive")) {
+        archiveArray = JSON.parse(localStorage.getItem("archive"));
+    };
 
     
 
@@ -22,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // List height
         let newHeight = list.offsetHeight;
 
+
+        
         // If parent is correct
         if(parent.classList == "News-card") {
 
@@ -40,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Filter archived items
                 archiveArray = archiveArray.filter((item) => userObject.id != item.id);
                 localStorage.setItem("archive", JSON.stringify(archiveArray));
+                button.onclick = null;
 
                 // Animate
                 article.style.transform = `translateX(0px)`;

@@ -7,6 +7,7 @@
     align-items: center;
     border-bottom: 1px solid var(--border);
     background-color: var(--background);
+    position: relative;
 
     &__link-left {
         text-align: left;
@@ -19,6 +20,22 @@
     &__title, &__inbox, &__gear, &__arrow-left {
         @extend %section-header;
         color: var(--primary);
+    };
+
+    &__inbox_active, &__gear_active {
+        position: absolute;
+        z-index: 100;
+        color: white;
+    };
+
+    &__inbox_active {
+        top: 32px;
+        left: 25px;
+    };
+
+    &__gear_active {
+        top: 32px;
+        right: 25px;
     };
 
     &__title {

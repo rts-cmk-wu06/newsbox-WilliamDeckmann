@@ -29,6 +29,91 @@
 <!-- Body -->
 <body class="Body">
 
+    <!-- Tutorial -->
+    <div class="Tutorial" id="Tutorial">
+        <section class="Tutorial__item Tutorial__item_active" id="Tutorial__item_1">
+            <article class="Tutorial__article">
+                <h2 class="Tutorial__title">
+                    Welcome to the Newsbox!
+                </h2>
+                <p class="Tutorial__text">
+                    Here you can find articles directly from NYT.
+                </p>
+            </article>
+            <button class="Tutorial__button uppercase">
+                Next
+            </button>
+        </section>
+
+        <section class="Tutorial__item" id="Tutorial__item_2">
+            <article class="Tutorial__article">
+                <h2 class="Tutorial__title">
+                    Save your favorites
+                </h2>
+                <p class="Tutorial__text">
+                    You can add an article item to your archive<br>
+                    by swiping and clicking the "archive button".
+                </p>
+            </article>
+            <button class="Tutorial__button uppercase">
+                Next
+            </button>
+        </section>
+
+        <section class="Tutorial__item" id="Tutorial__item_3">
+            <article class="Tutorial__article">
+                <h2 class="Tutorial__title">
+                    Open the archive
+                </h2>
+                <p class="Tutorial__text">
+                    To access any archived articles,<br>
+                    click on the little archive icon in<br>
+                    the top left corner and it will take<br>
+                    you to your archive.
+                </p>
+            </article>
+            <button class="Tutorial__button uppercase">
+                Next
+            </button>
+        </section>
+
+        <section class="Tutorial__item" id="Tutorial__item_4">
+            <article class="Tutorial__article">
+                <h2 class="Tutorial__title">
+                    Change the settings
+                </h2>
+                <p class="Tutorial__text">
+                    To change the setting, click the little<br>
+                    gear icon in the top right corner and<br>
+                    it will take your to the settings page.<br>
+                    Here you cna also disable certain categories<br>
+                    and change the theme to "dark-mode".
+                </p>
+            </article>
+            <button class="Tutorial__button uppercase">
+                Next
+            </button>
+        </section>
+
+        <section class="Tutorial__item" id="Tutorial__item_5">
+            <article class="Tutorial__article">
+                <h2 class="Tutorial__title">
+                    All good to go!
+                </h2>
+                <p class="Tutorial__text">
+                    You are now ready and all good to go!<br>
+                    Enjoy this application and the many articles<br>
+                    generously provided by New York Times.
+                </p>
+            </article>
+            <button class="Tutorial__button uppercase">
+                Next
+            </button>
+        </section>
+    </div>
+
+
+
     <!-- Wrapper -->
     <div class="Wrapper" id="Wrapper">
 
@@ -38,13 +123,13 @@
             <!-- Header -->
             <header class="Header">
                 <a class="Header__link-left" href="./archive.html">
-                    <i class="fas fa-inbox Header__inbox"></i>
+                    <i class="fas fa-inbox Header__inbox" id="Header__inbox"></i>
                 </a>
                 <h1 class="Header__title">
                     Newsbox
                 </h1>
                 <a class="Header__link-right" href="./settings.html">
-                    <i class="fas fa-cog Header__gear"></i>
+                    <i class="fas fa-cog Header__gear" id="Header__gear"></i>
                 </a>
             </header>
 
@@ -76,6 +161,7 @@
 
     <!-- JavaScript -->
     <script src="./assets/dist/js/load-page.js"></script>
+    <script src="./assets/src/js/tutorial.js"></script>
     <script src="./assets/dist/js/toggle-dark-mode.js"></script>
     <script src="./assets/dist/js/card-list.js"></script>
     <script src="./assets/dist/js/card-swipe.js"></script>

@@ -105,7 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
           list.appendChild(card);
           card.classList.add("News-card");
           card.setAttribute("id", id);
-          card.innerHTML = "\n                        <button class=\"News-card__button News-card__archive\">\n                            <i class=\"fas fa-inbox News-card__inbox\"></i>\n                        </button>\n                        <a class=\"News-card__container\" href=\"".concat(path[i].url, "\">\n                            <img class=\"News-card__img\" src=\"").concat(path[i].multimedia[0].url, "\" alt=\"News image\">\n                            <article class=\"News-card__article\">\n                                <h2 class=\"News-card__title\">\n                                    ").concat(path[i].title, "\n                                </h2>\n                                <p class=\"News-card__text\">\n                                    ").concat(path[i]["abstract"].substring(0, 75), "...\n                                </p>\n                            </article>\n                        </a>\n                    ");
+          card.innerHTML = "\n                        <button class=\"News-card__button News-card__archive\">\n                            <i class=\"fas fa-inbox News-card__inbox\"></i>\n                        </button>\n                        <a class=\"News-card__container\" href=\"".concat(path[i].url, "\">\n                            <img class=\"News-card__img\" src=\"").concat(path[i].multimedia[0].url, "\" alt=\"News image\">\n                            <article class=\"News-card__article\">\n                                <h2 class=\"News-card__title\">\n                                    ").concat(path[i].title, "\n                                </h2>\n                                <p class=\"News-card__text\">\n                                    ").concat(path[i]["abstract"].substring(0, 75), "...\n                                </p>\n                            </article>\n                        </a>\n                    "); // Add tutorial class
+
+          if (i == 0) {
+            card.classList.add("News-card_tutorial-item");
+          }
+
+          ;
         }
 
         ;

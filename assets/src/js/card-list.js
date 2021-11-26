@@ -140,6 +140,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             </article>
                         </a>
                     `;
+
+
+
+                    // Add tutorial class
+                    if(i == 0) {
+                        card.classList.add("News-card_tutorial-item");
+                    };
                 };
             };
         });

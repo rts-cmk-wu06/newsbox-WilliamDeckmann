@@ -12,6 +12,12 @@
     &:last-child {
         border-bottom: none;
     };
+
+    &_tutorial-item {
+        &_active {
+            border-bottom: 3px solid red;
+        };
+    };
     
     &_collapsed {
         height: 0;
@@ -54,6 +60,10 @@
         object-fit: cover;
         border-radius: 50%;
         background-color: var(--border);
+    };
+
+    &__article, &__img {
+        pointer-events: none;
     };
 
     &__title {

@@ -4,7 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Element variables
   var container = document.querySelector("#News-container"); // Array variables
 
-  var archiveArray = JSON.parse(localStorage.getItem("archive")); // SwipeFunction
+  var archiveArray = [];
+
+  if (localStorage.getItem("archive")) {
+    archiveArray = JSON.parse(localStorage.getItem("archive"));
+  }
+
+  ; // SwipeFunction
 
   var ArchiveFunction = function ArchiveFunction(e) {
     // Target element
@@ -32,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
         archiveArray = archiveArray.filter(function (item) {
           return userObject.id != item.id;
         });
-        localStorage.setItem("archive", JSON.stringify(archiveArray)); // Animate
+        localStorage.setItem("archive", JSON.stringify(archiveArray));
+        button.onclick = null; // Animate
 
         article.style.transform = "translateX(0px)";
         parent.classList.add("animate__animated", "animate__backOutLeft");

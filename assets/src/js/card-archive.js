@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Array variables
     let archiveArray = [];
+    if (localStorage.getItem("archive")) {
+        archiveArray = JSON.parse(localStorage.getItem("archive"));
+    };
 
     
 
@@ -42,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Push archived items
                 archiveArray.push(userObject); // JSON.stringify(userObject)
                 localStorage.setItem("archive", JSON.stringify(archiveArray));
+                button.onclick = null;
 
                 // Animate
                 article.style.transform = `translateX(0px)`;
