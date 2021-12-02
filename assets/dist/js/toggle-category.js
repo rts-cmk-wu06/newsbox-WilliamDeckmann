@@ -25,8 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         a.classList.add("Settings-panel__button_active");
       }
 
-      ;
-      console.log("\"".concat(a.id.replace("Settings-panel__", ""), "\" is now: ").concat(localStorage.getItem(a.id.replace("Settings-panel__", ""))));
+      ; //console.log(`"${a.id.replace("Settings-panel__", "")}" is now: ${localStorage.getItem(a.id.replace("Settings-panel__", ""))}`);
     });
   }
 

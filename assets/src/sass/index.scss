@@ -4,11 +4,12 @@
 
 /* Base & layout */
 @import "RESETS";
-@import "wrapper";
 @import "mix";
 
 /* Components */
 @import "./components/tutorial";
+@import "./components/wrapper";
+@import "./components/main";
 @import "./components/header";
 @import "./components/search-bar";
 @import "./components/news-section";

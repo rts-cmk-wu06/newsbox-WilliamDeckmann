@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Local storage variables
     let archiveArray = JSON.parse(localStorage.getItem("archive"));
-    console.log(archiveArray);
+    //console.log(archiveArray);
 
     // Element variable
     const list = document.querySelector("#News-section__list");
@@ -50,6 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
         if(list.classList.contains("News-section__list_closed")) {
             list.classList.remove("News-section__list_closed");
+            newHeight = 0;
+            let card = list.querySelectorAll(".News-card")
+            card.forEach(item => {
+                newHeight += 100;
+                console.log("hey");
+            });
             list.style.height = newHeight + "px";
             arrow.classList.remove("News-section__arrow-right_closed");
         }else{

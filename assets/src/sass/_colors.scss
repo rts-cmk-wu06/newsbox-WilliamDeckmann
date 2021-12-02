@@ -17,8 +17,8 @@ $dim-grey: #707070 !default;
 
 :root {
     /* Base */
+    --base: #1B1C20;
     --background: #FFFFFF;
-    --alternative: #ECEFF0;
     --border: #C8D1D3;
 
     /* Text */
@@ -47,7 +47,7 @@ $dim-grey: #707070 !default;
     --remove: #D95454;
     --card-icon: #D97D54;
 
-
+    /* Tutorial */
     --tutorial-title: #87BCBF;
     --tutorial-text: #FFFFFF;
     --tutorial-bkg: #1B1C20;
@@ -57,6 +57,7 @@ $dim-grey: #707070 !default;
 
 .dark-mode {
     /* Base */
+    --base: #1B1C20;
     --background: #1B1C20;
     --border: #C8D1D3;
 
@@ -85,4 +86,11 @@ $dim-grey: #707070 !default;
     --archive: #87BCBF;
     --remove: #D95454;
     --card-icon: #D97D54;
+
+    /* Tutorial */
+    --tutorial-title: #87BCBF;
+    --tutorial-text: #FFFFFF;
+    --tutorial-bkg: #1B1C20;
+    --tutorial-btn-title: #1B1C20;
+    --tutorial-btn-bkg: #87BCBF;
 };

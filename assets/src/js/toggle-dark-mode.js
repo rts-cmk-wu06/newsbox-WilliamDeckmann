@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("dark-mode", "true");
                 wrapper.classList.add("dark-mode");
             };
-            console.log(`"dark-mode" is now: ${localStorage.getItem("dark-mode", "")}`);
+            //console.log(`"dark-mode" is now: ${localStorage.getItem("dark-mode", "")}`);
         });
     };
 });

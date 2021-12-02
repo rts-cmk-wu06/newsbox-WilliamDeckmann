@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Array variables
     let archiveArray = JSON.parse(localStorage.getItem("archive"));
-    console.log(archiveArray);
+    //console.log(archiveArray);
 
     // Id array
     let idArray = [];
@@ -93,6 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
             button.addEventListener("click", () => {
                 if(list.classList.contains("News-section__list_closed")) {
                     list.classList.remove("News-section__list_closed");
+                    newHeight = 0;
+                    let card = list.querySelectorAll(".News-card")
+                    card.forEach(item => {
+                        newHeight += 100;
+                        console.log("hey");
+                    });
                     list.style.height = newHeight + "px";
                     arrow.classList.remove("News-section__arrow-right_closed");
                 }else{
@@ -140,13 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             </article>
                         </a>
                     `;
-
-
-
-                    // Add tutorial class
-                    if(i == 0) {
-                        card.classList.add("News-card_tutorial-item");
-                    };
                 };
             };
         });

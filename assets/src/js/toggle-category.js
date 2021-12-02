@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem(a.id.replace("Settings-panel__", ""), "true");
                 a.classList.add("Settings-panel__button_active");
             };
-            console.log(`"${a.id.replace("Settings-panel__", "")}" is now: ${localStorage.getItem(a.id.replace("Settings-panel__", ""))}`);
+            //console.log(`"${a.id.replace("Settings-panel__", "")}" is now: ${localStorage.getItem(a.id.replace("Settings-panel__", ""))}`);
         });
     };
 

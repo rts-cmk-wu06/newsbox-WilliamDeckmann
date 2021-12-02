@@ -1,0 +1,14 @@
+.Body {
+    background-color: var(--base);
+};
+
+.Wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_tutorial {
+        overflow: hidden;
+    };
+};

@@ -2,8 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   // Local storage variables
-  var archiveArray = JSON.parse(localStorage.getItem("archive"));
-  console.log(archiveArray); // Element variable
+  var archiveArray = JSON.parse(localStorage.getItem("archive")); //console.log(archiveArray);
+  // Element variable
 
   var list = document.querySelector("#News-section__list");
   var button = document.querySelector("#News-section__button");
@@ -26,6 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
   button.addEventListener("click", function () {
     if (list.classList.contains("News-section__list_closed")) {
       list.classList.remove("News-section__list_closed");
+      newHeight = 0;
+      var card = list.querySelectorAll(".News-card");
+      card.forEach(function (item) {
+        newHeight += 100;
+        console.log("hey");
+      });
       list.style.height = newHeight + "px";
       arrow.classList.remove("News-section__arrow-right_closed");
     } else {

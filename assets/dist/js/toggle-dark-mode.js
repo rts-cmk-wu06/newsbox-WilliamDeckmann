@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         wrapper.classList.add("dark-mode");
       }
 
-      ;
-      console.log("\"dark-mode\" is now: ".concat(localStorage.getItem("dark-mode", "")));
+      ; //console.log(`"dark-mode" is now: ${localStorage.getItem("dark-mode", "")}`);
     });
   }
 
