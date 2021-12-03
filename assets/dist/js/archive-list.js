@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
       var card = list.querySelectorAll(".News-card");
       card.forEach(function (item) {
         newHeight += 100;
-        console.log("hey");
       });
       list.style.height = newHeight + "px";
       arrow.classList.remove("News-section__arrow-right_closed");

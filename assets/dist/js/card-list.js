@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var header = document.createElement("header");
       container.appendChild(header);
       header.classList.add("News-section__header");
-      header.innerHTML = "\n                <figure class=\"News-section__figure\">\n                    <div class=\"News-section__icon\">\n                        ...\n                    </div>\n                    <h1 class=\"News-section__title uppercase\">\n                        ".concat(FirstLetterUppercase(title), "\n                    </h1>\n                </figure>\n            "); // Create button
+      header.innerHTML = "\n                <figure class=\"News-section__figure\">\n                    <div class=\"News-section__icon\">\n                        <i class=\"fas fa-cube News-section__logo\"></i>\n                    </div>\n                    <h1 class=\"News-section__title uppercase\">\n                        ".concat(FirstLetterUppercase(title), "\n                    </h1>\n                </figure>\n            "); // Create button
 
       var button = document.createElement("button");
       header.appendChild(button);
@@ -77,7 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
       container.appendChild(list);
       list.classList.add("News-section__list"); // List height
 
-      var newHeight = 0;
+      var newHeight = 0; // Activate list
+
       button.addEventListener("click", function () {
         if (list.classList.contains("News-section__list_closed")) {
           list.classList.remove("News-section__list_closed");
@@ -85,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
           var card = list.querySelectorAll(".News-card");
           card.forEach(function (item) {
             newHeight += 100;
-            console.log("hey");
           });
           list.style.height = newHeight + "px";
           arrow.classList.remove("News-section__arrow-right_closed");
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
           list.appendChild(card);
           card.classList.add("News-card");
           card.setAttribute("id", id);
-          card.innerHTML = "\n                        <button class=\"News-card__button News-card__archive\">\n                            <i class=\"fas fa-inbox News-card__inbox\"></i>\n                        </button>\n                        <a class=\"News-card__container\" href=\"".concat(path[i].url, "\">\n                            <img class=\"News-card__img\" src=\"").concat(path[i].multimedia[0].url, "\" alt=\"News image\">\n                            <article class=\"News-card__article\">\n                                <h2 class=\"News-card__title\">\n                                    ").concat(path[i].title, "\n                                </h2>\n                                <p class=\"News-card__text\">\n                                    ").concat(path[i]["abstract"].substring(0, 75), "...\n                                </p>\n                            </article>\n                        </a>\n                    ");
+          card.innerHTML = "\n                        <button class=\"News-card__button News-card__archive\">\n                            <i class=\"fas fa-inbox News-card__inbox\"></i>\n                        </button>\n                        <a class=\"News-card__container\" href=\"".concat(path[i].url, "\">\n                            <img class=\"News-card__img\" src=\"").concat(path[i].multimedia[0].url, "\" alt=\"News image\">\n                            <article class=\"News-card__article\">\n                                <h2 class=\"News-card__title\">\n                                    ").concat(path[i].title, "\n                                </h2>\n                                <p class=\"News-card__text\">\n                                    ").concat(path[i]["abstract"].substring(0, 70), "...\n                                </p>\n                            </article>\n                        </a>\n                    ");
         }
 
         ;

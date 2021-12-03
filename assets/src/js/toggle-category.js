@@ -12,13 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Category switch function
     function CategorySwitchFunction(a) {
 
-
         if(localStorage.getItem(a.id.replace("Settings-panel__", "")) == "true") {
             a.classList.add("Settings-panel__button_active");
         }else{
             a.classList.remove("Settings-panel__button_active");
         };
-
 
         a.addEventListener("click", () => {
             if(a.classList.contains("Settings-panel__button_active")) {

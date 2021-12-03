@@ -8,7 +8,7 @@ const babel = require("gulp-babel");
 // Styles
 function buildStyles() {
   return src('assets/src/sass/**/*.scss')
-    .pipe(sass({ outputStyle: 'expanded' })) // compressed & expanded
+    .pipe(sass({ outputStyle: 'compressed' })) // compressed & expanded
     .pipe(dest('assets/dist/css'))
 };
 

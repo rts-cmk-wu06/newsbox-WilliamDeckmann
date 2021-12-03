@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             header.innerHTML = `
                 <figure class="News-section__figure">
                     <div class="News-section__icon">
-                        ...
+                        <i class="fas fa-cube News-section__logo"></i>
                     </div>
                     <h1 class="News-section__title uppercase">
                         ${FirstLetterUppercase(title)}
@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     
+            // Activate list
             button.addEventListener("click", () => {
                 if(list.classList.contains("News-section__list_closed")) {
                     list.classList.remove("News-section__list_closed");
@@ -97,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     let card = list.querySelectorAll(".News-card")
                     card.forEach(item => {
                         newHeight += 100;
-                        console.log("hey");
                     });
                     list.style.height = newHeight + "px";
                     arrow.classList.remove("News-section__arrow-right_closed");
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     ${path[i].title}
                                 </h2>
                                 <p class="News-card__text">
-                                    ${path[i].abstract.substring(0,75)}...
+                                    ${path[i].abstract.substring(0,70)}...
                                 </p>
                             </article>
                         </a>

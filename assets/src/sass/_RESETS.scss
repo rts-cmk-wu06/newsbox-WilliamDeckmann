@@ -2,26 +2,26 @@
 * {
     box-sizing: border-box;
     transition: all .5s;
-}
+};
 
 html, body {
     padding: 0;
     margin: 0;
     font-size: 10px;
     font-family: europa, rift-soft, sans-serif;
-}
+};
 
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
-}
+};
 
 a {
     text-decoration: none;
-}
+};
 
 address {
     font-style: normal;
-}
+};
 
 button {
     padding: 0;
@@ -29,20 +29,20 @@ button {
     background: none;
     &:hover {
         cursor: pointer;
-    }
-}
+    };
+};
 
 img, video {
     max-width: 100%;
     display: block;
-}
+};
 
 figure, input {
     margin: 0;
-}
+};
 
 ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
-}
+};

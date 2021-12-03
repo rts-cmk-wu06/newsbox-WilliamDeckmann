@@ -26,11 +26,23 @@
     &__button {
         width: 35px;
         text-align: center;
-    }
+    };
 
     &__icon {
-        height: 35px
-    }
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        background-color: var(--background);
+        box-shadow: 0 5px 20px var(--section-shadow);
+    };
+
+    &__logo {
+        font-size: 19px;
+        color: var(--section-icon);
+    };
 
     &__title, &__arrow-right {
         @extend %section-header;
