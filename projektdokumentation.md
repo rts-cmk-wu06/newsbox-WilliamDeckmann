@@ -8,7 +8,7 @@
 
 ##### Uddannelsessted: Roskilde Tekniske Skole
 
-[Link til (min applikaton)](https://williamdeckmann.github.io/newsbox-williamdeckmann/)
+[Link til (min applikaton)](https://williamdeckmann.github.io/newsbox-praktikopgave/)
 
 
 ## Teknologier
