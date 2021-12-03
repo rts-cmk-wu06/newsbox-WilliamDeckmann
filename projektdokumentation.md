@@ -26,25 +26,25 @@
 
 ### Redegørelse for oprindelsen af evt. tredjeparts kode anvendt i opgaveløsningen (Teknisk dokumentation)
 
-gulp:
+## gulp:
 Gulp pakken er en nødvendig pakke for at få "gulp-processen" til at udføre. Det er den pakke der gør at den compiler, translater, watcher osv. Det gør det muligt for alle andre pakker som skal tale sammen med den at blive udført.
 
-sass:
+## sass:
 Sass pakken er nødvendig hvis man gerne vil bruge Sass syntaks i sin kode, og kan indgå i "gulp-processen", ligesom jeg har gjort i det her projekt. Jeg benytter mig af Scss til at skrive min css, da det gør det lidt lettere at skrive styling.
 
-gulp-sass:
+## gulp-sass:
 Gulp-sass pakken er nødvendig hvis man gerne vil gøre brug af Sass pakken. Den gør sådan at Gulp pakken og Sass pakken kan snakke sammen med hinanden, derfor er den nødvendig hvis man gerne vil skrive Sass syntaks.
 
-@babel/core:
+## @babel/core:
 @babel/core pakken er gør det muligt at oversætte ny/morderne JavaScript kode til en ældre syntaks, for at sikre sig at alle browsere, (hvis der nu skulle være nogle browsere som ikke var up-to-date endnu), altid er i stand til at læse koden og forstå den, og kan indgå i "gulp-processen". På den måde undgår man at ens web-site pludselig ikke virker længere.
 
-gulp-babel:
+## gulp-babel:
 Gulp-babel pakken er nødvendig hvis man gerne vil bruge @babel/core pakken. Den gør sådan at Gulp pakken og @babel/core pakken kan snakke sammen med hinanden.
 
-@babel/preset-env:
+## @babel/preset-env:
 @babel/preset-env pakken er nødvendig når man skal bruge en "babel.config.json" fil i sin "Gulp-process".
 
-axios:
+## axios:
 Axios pakken er nødvendig hvis man hellere vil fetche API data med Axios syntaksen, i stedet for den normale "fetch" metode. Jeg gør brug af den her metode da det gør det lidt nemmere at skrive fetch koden og dermed også spare mig for lidt ekstra tid.
 
 ---
